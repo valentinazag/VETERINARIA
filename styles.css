@@ -1,0 +1,82 @@
+.bg-custom {
+    background-color: #7ad1e9;
+}
+
+.footer{
+    background-color: #7ad1e9;
+}
+
+
+.carousel-item img {
+    height: 575px;
+    object-fit: cover; 
+    filter: brightness(40%);
+}
+
+.colorpal{
+    color: #ffffff;
+}
+
+.fondo {
+    background-color: rgb(40, 171, 223);
+    background: linear-gradient(to bottom, rgba(40, 171, 223, 0) 0%, rgb(67, 188, 236) 60%, rgba(40, 171, 223, 0) 100%);
+    padding: 50px 0; /* Asegura que haya espacio suficiente para ver el degradado */
+    
+}
+
+.zoomP{
+    /* Aumentamos la anchura y altura durante 2 segundos * */
+    transition: width 1.1s, height 1.1s, transform 1.1s; 
+    -moz-transition: width 1.1s, height 1.1s, -moz-transform 1.1s;
+    -webkit-transition: width 1.1s, height 1.1s, -webkit-transform 1.1s;
+    -o-transition: width 1.1s, height 1.1s, -o-transform 1.1s;
+}
+.zoomP:hover{
+    /* /tranformamos el elemento al pasar el mouse por encima al doble de */
+    /* su tamano con scale(2).* */
+    transform: scale(1.05); /* (150%zoom Note:if the zoom is too large, it will go outside of the viewport) */
+    -webkit-transform:scale(1.05);transform:scale(1.05)
+
+}
+
+
+
+/* Estilos generales para la sección */
+.imagenclinica img { 
+    max-width: 80%;
+    height: auto;
+    margin-top: 15%;
+}
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 991px) {
+    .imagenclinica img {
+        max-width: 100%;
+        margin-top: 5%;
+    }
+    .acerca-texto {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+    .imagenclinica img {
+        max-width: 90%;
+        margin-top: 2%;
+    }
+    .acerca-texto {
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+    }
+    .acerca-texto h2 {
+        font-size: 1.5rem;
+    }
+    .acerca-texto p {
+        font-size: 1rem;
+        text-align: justify;
+    }
+}
+
