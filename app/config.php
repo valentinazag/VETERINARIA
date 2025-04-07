@@ -8,11 +8,11 @@ define('USUARIO','root');
 define('PASSWORD',''); 
 define('BD','veterinaria'); 
 
-$servidor= "mysql:bdname=".BD.";host:".SERVIDOR;
+$servidor= "mysql:dbname=".BD.";host:".SERVIDOR;
 
 try {
-    $pdp = new PDO($servidor,USUARIO,PASSWORD,array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
-    echo "Conexion exitosa a BD";
+    $pdo = new PDO($servidor,USUARIO,PASSWORD,array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
+   // echo "Conexion exitosa a BD";
 } catch (PDOException $e) {
     print_r($e);
     echo "No se ha podido conectar a la BD";

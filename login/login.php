@@ -29,10 +29,10 @@ include("../app/config.php");
     <div class="card-body login-card-body">
       <p class="login-box-msg"><b>Ingresa tus datos </b></p>
       <hr>
-      <form action="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/index3.html" method="post">
+      <form action="<?php echo $URL;?>/app/controllers/login/controller_login.php" method="post">
         <label for="">Correo electrónico</label>
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" name="email" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -41,7 +41,7 @@ include("../app/config.php");
         </div>
         <label for="">Contraseña</label>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -49,7 +49,7 @@ include("../app/config.php");
           </div>
         </div>
         <hr>
-        <button class="btn btn-primary" style="width:100%;";>Ingresar</button>
+        <button class="btn btn-primary" type="submit" style="width:100%;";>Ingresar</button>
         <br><br>
         <button class="btn btn-secondary" style="width:100%;";>Cancelar</button>
       </form>
