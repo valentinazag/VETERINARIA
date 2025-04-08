@@ -1,8 +1,8 @@
 <?php
 
 include("../../config.php");
-
- $email = $_POST['email'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   $email = $_POST['email'];
  $pw = $_POST['password'];
 
 $sql = "SELECT * FROM usuarios WHERE email ='$email'";
@@ -16,14 +16,14 @@ $contador = 0;
 
 foreach($usuarios as $usuario){
 $contador = $contador +1;
-$password_tabla = $usuario['contraseña'];
+$password_tabla = $usuario['password'];
 }
 
 $hash = $password_tabla;
 
 if (($contador > 0) && (password_verify($pw,$hash)))
 {
-    if ($usuario['rol'] == "ADMINISTRADOR" )
+    if ($usuario['cargo'] == "ADMINISTRADOR" )
     {
         session_start();
         $_SESSION['sesion_email'] = $email;
@@ -36,5 +36,7 @@ if (($contador > 0) && (password_verify($pw,$hash)))
     echo "Error al iniciar sesión";
     header('Location: '.$URL.'/login/login.php');
 }
-
+ 
+}
+ 
 ?>

@@ -18,4 +18,9 @@ try {
     echo "No se ha podido conectar a la BD";
 }
 
+date_default_timezone_set("America/Argentina/Buenos_Aires");
+ $fecha = date ('Y-m-d H:i:s');//"2025-04-07 14:00:00";
+
+
+
 ?>

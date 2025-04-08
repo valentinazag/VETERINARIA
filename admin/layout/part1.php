@@ -21,8 +21,18 @@ if (isset($_SESSION['sesion_email'])){
  <link rel="stylesheet" href="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
  <!-- Theme style -->
  <link rel="stylesheet" href="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/dist/css/adminlte.min.css">
-
-
+ <!-- jQuery para que funcione SweetAlert -->
+ <script src="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
+ <!-- Sweet Alert -->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+ <!-- DataTables PAGINACION-->
+ <link rel="stylesheet" href="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+ <link rel="stylesheet" href="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+ <link rel="stylesheet" href="<?php echo $URL;?>/public/templates/AdminLTE-3.2.0/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+ <!--CSS PARTE1-->
+ <link rel="stylesheet" href="../../public/css/parte1.css">
+<!--ICONOS BOOSTRAP-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -100,7 +110,7 @@ if (isset($_SESSION['sesion_email'])){
      <nav class="mt-2">
        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
          <li class="nav-item">
-           <a href="#" class="nav-link active" style="margin-left: 1.2%;">
+           <a href="#" class="nav-link active usu">
              <i class="nav-icon fas fa-users"></i>
              <p>
                Usuarios
