@@ -1,6 +1,7 @@
 <?php 
 include('../../app/config.php');
 include('../../admin/layout/part1.php');
+
 ?>
 <head>
 <link rel="stylesheet" href="../../public/css/registro.css">
@@ -64,7 +65,7 @@ include('../../admin/layout/part1.php');
             <hr style="border-top: 1px solid #007bff;">
             <div class="row">
                <div class="col-md-12">
-                  <a href="" class="btn btn-secondary">Cancelar</a>
+                  <a href="../usuarios/usuarios.php" class="btn btn-secondary">Cancelar</a>
                   <input type="submit" class="btn btn-primary" value="Registrar">
                </div>
             </div>

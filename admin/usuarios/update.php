@@ -76,7 +76,7 @@ include('../../app/controllers/usuarios/datos_users.php');
             <hr style="border-top: 1px solid #198754;">
             <div class="row">
                <div class="col-md-12">
-                  <a href="../../admin/usuarios/usuarios.php" class="btn btn-secondary">Cancelar</a>
+               <a href="<?php echo $URL.'/admin/usuarios/vista.php?id_usuario='.$id_usuario?>" class="btn btn-secondary">Cancelar</a>
                   <input type="submit" class="btn btn-success" value="Actualizar usuario">
                </div>
             </div>

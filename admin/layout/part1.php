@@ -1,6 +1,17 @@
 <?php
 session_start();
 if (isset($_SESSION['sesion_email'])){
+  $email = $_SESSION['sesion_email'];
+
+$sql = "SELECT * FROM usuarios WHERE email = '$email'";
+$query = $pdo->prepare($sql);
+$query->execute();
+
+$usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
+foreach($usuarios as $usuario){
+  $id_usuario = $usuario['id_user'];
+}
+
 } else{
  header('Location: '.$URL.'/login/login.php');
 }
@@ -100,7 +111,7 @@ if (isset($_SESSION['sesion_email'])){
      <!-- Sidebar user panel (optional) -->
      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
        <div class="info">
-         <a href="#" class="d-block"><b>Bienvenido </b><br> usuario </a> 
+         <a href="#" class="d-block"><b>Bienvenido </b><br> </a> 
        </div>
      </div>
 
@@ -128,6 +139,35 @@ if (isset($_SESSION['sesion_email'])){
                <a href="<?php echo $URL?>/admin/usuarios/registro.php" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Nuevo usuario</p>
+               </a>
+             </li>
+           </ul>
+         </li>
+         <li class="nav-item">
+           <a href="#" class="nav-link active usu">
+           <i class="bi bi-basket2-fill"> </i>
+             <p>
+              Productos
+              <i class="right fas fa-angle-left"></i>
+             </p>
+           </a>
+           <ul class="nav nav-treeview">
+             <li class="nav-item">
+               <a href="<?php echo $URL?>/admin/productos/productos.php" class="nav-link">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Listado de productos</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?php echo $URL?>/admin/productos/registro_prod.php" class="nav-link">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Nuevo producto</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?php echo $URL?>/admin/productos/papelera_p.php" class="nav-link">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Papelera de productos</p>
                </a>
              </li>
            </ul>

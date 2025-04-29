@@ -50,9 +50,11 @@ include('../../app/controllers/usuarios/datos_users.php');
             </div> 
             <hr style="border-top: 1px solid #007bff;">
             <div class="row">
-               <div class="col-md-12">
+            <div class="col-md-12">
                   <a href="../../admin/usuarios/usuarios.php" class="btn btn-secondary">Cancelar</a>
-               </div>
+                  <a href="update.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-success text-white">Editar</a>
+                  <a href="delete.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-danger text-white"> Eliminar</a>
+                </div>
             </div>        
         </div> <!-- card-body -->
       </div> <!-- card -->
