@@ -49,14 +49,13 @@ include('../../app/controllers/usuarios/datos_users.php');
             </div>
             <hr style="border-top: 1px solid #d9534f;">
             <div class="row">
-               <div class="col-md-12">
-                  <form action="<?php echo $URL?>/app/controllers/usuarios/eliminar.php" method="POST">
-                  <a href="../../admin/usuarios/usuarios.php" class="btn btn-secondary">Cancelar</a>
-                  <input type="text" name="id_usuario" value="<?php echo $id_usuario?>" hidden>
-                  <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button>
-                  </form>
-               </div>
-            </div>
+            <a href="../../app/controllers/usuarios/vista.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-success text-white">
+            <i class="bi bi-pencil"></i> Cancelar
+            </a>
+            <a href="../../app/controllers/usuarios/estado/desactivar_u.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-danger text-white">
+            <i class="bi bi-trash"></i> Eliminar
+            </a>
+         </div>
         </div> <!-- card-body -->
       </div> <!-- card -->
     </div> <!-- col-md-8 -->

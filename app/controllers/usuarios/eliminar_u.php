@@ -2,9 +2,8 @@
 
 include("../../../app/config.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-{
-$id_usuario = $_POST['id_usuario'];
+
+$id_usuario = $_GET['id_usuario'];
 
 
     $sentencia = $pdo->prepare("DELETE FROM usuarios WHERE id_user = '$id_usuario' "); 
@@ -16,15 +15,15 @@ $id_usuario = $_POST['id_usuario'];
                 session_start();
                 $_SESSION['mensaje'] = "Se elimino correctamente";
                 $_SESSION['icono'] = "success";
-             header('Location:'.$URL.'/admin/usuarios/usuarios.php');
+             header('Location:'.$URL.'/admin/usuarios/papelera.php');
             }else{
                 session_start();
                 $_SESSION['mensaje'] = "Error al eliminar usuario";
                 $_SESSION['icono'] = "error";
-                header('Location:'.$URL.'/admin/usuarios/registro.php');
+                header('Location:'.$URL.'/admin/usuarios/papelera.php');
             
         }
-}
+
 
 
 

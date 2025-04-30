@@ -10,6 +10,7 @@ $query->execute();
 $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
 foreach($usuarios as $usuario){
   $id_usuario = $usuario['id_user'];
+  $cargo_session= $usuario['cargo'];
 }
 
 } else{
@@ -130,15 +131,21 @@ foreach($usuarios as $usuario){
            </a>
            <ul class="nav nav-treeview">
              <li class="nav-item">
+               <a href="<?php echo $URL?>/admin/usuarios/registro.php" class="nav-link">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Nuevo usuario</p>
+               </a>
+             </li>
+             <li class="nav-item">
                <a href="<?php echo $URL?>/admin/usuarios/usuarios.php" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Listado de usuarios</p>
                </a>
              </li>
              <li class="nav-item">
-               <a href="<?php echo $URL?>/admin/usuarios/registro.php" class="nav-link">
+               <a href="<?php echo $URL?>/admin/usuarios/papelera.php" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
-                 <p>Nuevo usuario</p>
+                 <p>Papelera de usuarios</p>
                </a>
              </li>
            </ul>
@@ -152,16 +159,17 @@ foreach($usuarios as $usuario){
              </p>
            </a>
            <ul class="nav nav-treeview">
-             <li class="nav-item">
-               <a href="<?php echo $URL?>/admin/productos/productos.php" class="nav-link">
-                 <i class="far fa-circle nav-icon"></i>
-                 <p>Listado de productos</p>
-               </a>
-             </li>
+             
              <li class="nav-item">
                <a href="<?php echo $URL?>/admin/productos/registro_prod.php" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Nuevo producto</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?php echo $URL?>/admin/productos/productos.php" class="nav-link">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Listado de productos</p>
                </a>
              </li>
              <li class="nav-item">

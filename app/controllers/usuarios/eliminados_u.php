@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM usuarios WHERE estado = 'activo'";
+$sql = "SELECT * FROM usuarios WHERE estado = 'desactivado' ";
 
 $query = $pdo->prepare($sql);
 $query->execute();

@@ -1,26 +1,37 @@
 <?php 
 include('../../app/config.php');
 include('../../admin/layout/part1.php');
-include('../../app/controllers/usuarios/listado_users.php')
+include('../../app/controllers/usuarios/eliminados_u.php')
 
 ?>
 <br>
  
 <div class="container-fluid">
     <h1>
-        Listado Usuarios
+        Papelera de usuarios
     </h1>
-    <div class="text-end mb-2" id="btnEliminarSeleccionados" style="display:none; margin-left: 80%">
-    <form id="formEliminarSeleccionados" action="../../app/controllers/usuarios/seleccionados/desactivar_seleccionados_u.php" method="POST">
-        <input type="hidden" name="ids_seleccionados" id="ids_seleccionados">
-        <button type="submit" class="btn btn-danger">
-        Eliminar seleccionados
-        </button>
-    </form>
+    <div class="row">
+    <div class="text-end mb-2" id="btnEliminarSeleccionados" style="display:none; margin-left:70%">
+    <div class="d-flex justify-content-end gap-2">
+        <form id="formEliminarSeleccionados" action="../../app/controllers/usuarios/seleccionados/eliminar_seleccionados_u.php" method="POST">
+    <input type="hidden" name="ids_seleccionados" id="ids_seleccionados_eliminar">
+    <button type="submit" class="btn btn-danger">
+        Eliminar definitivamente
+    </button>
+</form>
+
+<form id="formRestaurarSeleccionados" action="../../app/controllers/usuarios/seleccionados/restaurar_seleccionados_u.php" method="POST">
+    <input type="hidden" name="ids_seleccionados" id="ids_seleccionados_restaurar">
+    <button type="submit" class="btn btn-success" style="margin-left: 5%;">
+        Restaurar
+    </button>
+</form>
+</div>
+    </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card card-outline card-primary">
+            <div class="card card-outline card-warning">
                 <div class="card-header">
                     <h3 class="card-title"><b>Usuarios registrados</b></h3>
                 </div>            
@@ -55,17 +66,17 @@ include('../../app/controllers/usuarios/listado_users.php')
                                     <td><?php echo $usuario['cargo']?></td>
                                     <td><?php echo $usuario['fyh_creacion']?></td>
                                     <td>                                       
-                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <a href="vista.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-info text-white">
-                                        <i class="bi bi-eye"></i> Ver
-                                    </a>
-                                    <a href="update.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-success text-white">
-                                        <i class="bi bi-pencil"></i> Editar
-                                    </a>
-                                    <a href="delete.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-danger text-white">
-                                        <i class="bi bi-trash"></i> Eliminar
-                                    </a>
-                                </div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                         <a href="../../app/controllers/usuarios/estado/restaurar_u.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-success text-white">
+                                         Restaurar
+                                         </a>
+                                         
+                                         <a href="../../app/controllers/usuarios/eliminar_u.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-danger text-white">
+                                         Eliminar definitivamente
+                                         </a>
+                                        </div>
+                                     </div> 
                                     </td>
                                 </tr>
                             <?php 
@@ -78,7 +89,7 @@ include('../../app/controllers/usuarios/listado_users.php')
         </div>
     </div>
 </div>
-<script src="../../public/js/listados.js"></script>
+<script src="../../public/js/papelera.js"></script>
 
 <?php 
 include('../../admin/layout/part2.php');
