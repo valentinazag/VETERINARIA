@@ -1,7 +1,7 @@
 <?php 
 include('../../app/config.php');
 include('../../admin/layout/part1.php');
-include('../../app/controllers/usuarios/listado_users.php')
+include('../../app/controllers/usuarios/listado_users.php');
 
 ?>
 <br>
@@ -47,7 +47,11 @@ include('../../app/controllers/usuarios/listado_users.php')
                                 $id_usuario = $usuario['id_user'];
                                 ?>
                                 <tr>
-                                <td><input type="checkbox" class="select-item" name="id_usuarios[]" value="<?php echo $id_usuario; ?>"></td>
+                                <td>
+                                <?php if ($id_usuario != $id_session) { ?>
+                                <input type="checkbox" class="select-item" name="id_usuarios[]" value="<?php echo $id_usuario; ?>">
+                                <?php } ?>
+                                </td>
                                     <td><?php echo $contador?></td>
                                     <td><?php echo $usuario['nombre_completo']?></td>
                                     <td><?php echo $usuario['email']?></td>
@@ -62,9 +66,11 @@ include('../../app/controllers/usuarios/listado_users.php')
                                     <a href="update.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-success text-white">
                                         <i class="bi bi-pencil"></i> Editar
                                     </a>
+                                    <?php if ($id_usuario != $id_session) { ?>
                                     <a href="delete.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-danger text-white">
-                                        <i class="bi bi-trash"></i> Eliminar
+                                    <i class="bi bi-trash"></i> Eliminar
                                     </a>
+                                    <?php } ?>
                                 </div>
                                     </td>
                                 </tr>

@@ -1,3 +1,7 @@
+<?php 
+include('app/config.php');
+include('app/controllers/productos/listado_produ.php');
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -82,8 +86,6 @@
           class="d-block w-100" alt="Veterinario abrazando perro">
           <div class="carousel-caption d-none d-md-block">
             <div class="colorpal">
-              <a href="" class="btn btn-outline-info btn-lg" style="margin-right: 10px; margin-bottom: 40px;">Reservar Cita</a>
-              <a href="" class="btn btn-outline-info btn-lg" style="margin-right: 10px; margin-bottom: 40px;">Productos</a>
             <h5>CARIÑO</h5>
             <p>Amor para nuestros pacientes.</p>
           </div>
@@ -94,8 +96,6 @@
           class="d-block w-100" alt="Gato gris en mesa veterinaria">
           <div class="carousel-caption d-none d-md-block">
             <div class="colorpal">
-              <a href="" class="btn btn-outline-info btn-lg" style="margin-right: 10px; margin-bottom: 40px;">Reservar Cita</a>
-              <a href="" class="btn btn-outline-info btn-lg" style="margin-right: 10px; margin-bottom: 40px;">Productos</a>
             <h5>CONFIANZA</h5>
             <p>Nuestros pacientes se sienten comodos al confiar en el personal.</p>
             </div>
@@ -105,8 +105,6 @@
           <img src="https://cdn.pixabay.com/photo/2023/12/06/19/00/dog-8434224_1280.jpg" class="d-block w-100" alt="Cachorro">
           <div class="carousel-caption d-none d-md-block">  
             <div class="colorpal">
-              <a href="" class="btn btn-outline-info btn-lg" style="margin-right: 10px; margin-bottom: 40px;">Reservar Cita</a>
-              <a href="" class="btn btn-outline-info btn-lg" style="margin-right: 10px; margin-bottom: 40px;">Productos</a>
             <h5>DESDE PEQUEÑOS</h5>
             <p>Atendemos a pacientes en todas las etapas de la vida</p>
           </div>
@@ -123,6 +121,15 @@
       </button>
     </div>
   </section>
+  <section class="container my-5">
+  <div class="card p-4 text-center shadow" style="margin-bottom: -10%">
+    <h3 class="mb-4">¿Como podemos ayudarte?</h3>
+    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+      <a href="#" class="btn btn-info btn-lg ">Reservar Cita</a>
+      <a href="#" class="btn btn-info btn-lg ">Productos</a>
+    </div>
+  </div>
+</section>
  <!--INFORMACION-->
   <section>
     <div class="container"> <!--container-fluid: abarca toda la pantalla de izq a der-->
@@ -136,18 +143,18 @@
         </div>
         <div class="col-md-6 col-sm-12 acerca-texto">
           <br><br><br><br><br>
-          <center><h2>ACERCA DE LA <span style="color: rgb(40, 171, 223);"> NUESTRA CLÍNICA </span> </h2>
+          <center><h2>ACERCA DE <span style="color: rgb(40, 171, 223);"> NUESTRA CLÍNICA </span> </h2>
           
           <p style="text-align: justify; width: 80%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eu massa vitae mauris mattis dapibus. In velit tellus, dapibus non varius vitae, sollicitudin a sem. Nunc vestibulum, leo vel commodo vestibulum, ex est tincidunt elit, nec interdum ante quam quis lorem. Nam et vehicula mauris, vel tempus odio. Pellentesque ut faucibus augue, eu rhoncus est. Aenean tristique sollicitudin eros et tempus. Integer dictum massa vel metus dignissim, quis dictum lectus fringilla. 
              Ultrices mollis orci. Aliquam erat volutpat. Aliquam feugiat vehicula consectetur. Praesent dapibus ut enim quis posuere. Pellentesque convallis maximus iaculis.</p>
-             <a href="" class="btn btn-outline-info btn-lg" >Más Informacion</a></center>
+         <!--    <a href="" class="btn btn-outline-info btn-lg" >Más Informacion</a></center>-->
             </div>
       </div>
     </div>
   </section>
 
-  <!--SERVICIOS-->
-  <section class="our-services">
+    <!--SERVICIOS-->
+    <section class="our-services">
     <div class="container">
       <div class="row">
         <div class="col-md-12 ">
@@ -188,6 +195,42 @@
           <img src="https://img.freepik.com/vector-gratis/dibujado-mano-adoptar-ilustracion-perro_23-2150586490.jpg?t=st=1743634803~exp=1743638403~hmac=885bfc36c0fe60903885d0a44d99ba78715cd3cb291835fc524bf5cca9978481&w=740" alt="" width="100%" height="92.5%">
          </div>
         </div>
+    </div>
+  </section>
+
+<!--PRODUCTOS-->
+  <section class="our-products">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ">
+        <br><br>
+        <h2>NUESTROS <span style="color: rgb(40, 171, 223);">PRODUCTOS</span></h2>
+        <br>
+       </div>
+      </div>
+        <div class="row">
+          <?php foreach ($productos as $producto){
+          ?>
+          <div class="col-md-3">
+            <div class="card">
+            <img src="<?php echo $URL."public/images/productos/".$producto['imagen']?>" height="220px" class="card-img-top" alt="<?php echo $producto['descripcion']?>">
+            <div class="card-body">
+              <h5><div class="card-title"><?php echo $producto['nombre_producto']?></div></h5>
+              <hr>
+              <p class="card-text"><?php echo $producto['descripcion']?></p>
+              <a href="" class="btn btn-outline-info btn-lg" >Agregar al carrito</a>
+            </div>
+          </div>
+          <br>
+         </div>
+          <?php
+          }
+          ?>
+          <div class="row mt-4">
+  <div class="col d-flex justify-content-center">
+    <a href="tienda.php" class="btn btn-info btn-lg w-100 w-md-75">Ver más productos</a>
+  </div>
+</div>
     </div>
   </section>
 

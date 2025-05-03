@@ -49,9 +49,7 @@ include('../../app/controllers/usuarios/datos_users.php');
             </div>
             <hr style="border-top: 1px solid #d9534f;">
             <div class="row">
-            <a href="../../app/controllers/usuarios/vista.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-success text-white">
-            <i class="bi bi-pencil"></i> Cancelar
-            </a>
+            <a href="<?php echo $URL.'/admin/usuarios/vista.php?id_usuario='.$id_usuario?>" class="btn btn-secondary">Cancelar</a>
             <a href="../../app/controllers/usuarios/estado/desactivar_u.php?id_usuario=<?php echo $id_usuario;?>" class="btn btn-danger text-white">
             <i class="bi bi-trash"></i> Eliminar
             </a>

@@ -100,6 +100,7 @@ include('../../app/controllers/productos/datos_productos.php');
             <div class="row">
               <div class="col-md-12">
                 <a href="../../admin/productos/productos.php" class="btn btn-secondary">Cancelar</a>
+                <a href="stock_p.php?id_producto=<?php echo $id_producto;?>" class="btn btn text-white" style="background-color:#6f42c1;">Stock</a>
                 <a href="update_p.php?id_producto=<?php echo $id_producto;?>" class="btn btn-success text-white">Editar</a>
                 <a href="delete_p.php?id_producto=<?php echo $id_producto;?>" class="btn btn-danger text-white">Eliminar</a>
               </div>

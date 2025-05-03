@@ -99,9 +99,7 @@ include('../../app/controllers/productos/datos_productos.php');
             <input type="text" name="id_usuario" value="<?php echo $id_usuario?>" hidden>
             <hr style="border-top: 1px solid #d9534f;">
             <div class="row">
-            <a href="../../app/controllers/productos/vista.php?id_producto=<?php echo $id_producto;?>" class="btn btn-success text-white">
-            <i class="bi bi-pencil"></i> Cancelar
-            </a>
+            <a href="<?php echo $URL.'/admin/productos/vista_p.php?id_producto='.$id_producto?>" class="btn btn-secondary">Cancelar</a>
             <a href="../../app/controllers/productos/estado/desactivar_produ.php?id_producto=<?php echo $id_producto;?>" class="btn btn-danger text-white">
             <i class="bi bi-trash"></i> Eliminar
             </a>

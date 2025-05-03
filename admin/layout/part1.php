@@ -10,7 +10,9 @@ $query->execute();
 $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
 foreach($usuarios as $usuario){
   $id_usuario = $usuario['id_user'];
+  $id_session = $usuario['id_user'];
   $cargo_session= $usuario['cargo'];
+  $nombre_entero= $usuario['nombre_completo'];
 }
 
 } else{
@@ -112,7 +114,7 @@ foreach($usuarios as $usuario){
      <!-- Sidebar user panel (optional) -->
      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
        <div class="info">
-         <a href="#" class="d-block"><b>Bienvenido </b><br> </a> 
+         <a href="#" class="d-block"><b>Bienvenido </b><br> <?php echo $nombre_entero ?></a> 
        </div>
      </div>
 

@@ -67,6 +67,9 @@ include('../../app/controllers/productos/listado_produ.php');
                                     <a href="vista_p.php?id_producto=<?php echo $id_producto;?>" class="btn btn-info text-white">
                                         <i class="bi bi-eye"></i> Ver
                                     </a>
+                                    <a href="stock_p.php?id_producto=<?php echo $id_producto;?>" class="btn btn text-white" style= "background-color: #6f42c1";>
+                                        <i class="bi bi-eye"></i> Stock
+                                    </a>
                                     <a href="update_p.php?id_producto=<?php echo $id_producto;?>" class="btn btn-success text-white">
                                         <i class="bi bi-pencil"></i> Editar
                                     </a>
