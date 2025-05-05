@@ -19,9 +19,7 @@ foreach($usuarios as $usuario){
  header('Location: '.$URL.'/login/login.php');
 }
 
-
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -161,7 +159,6 @@ foreach($usuarios as $usuario){
              </p>
            </a>
            <ul class="nav nav-treeview">
-             
              <li class="nav-item">
                <a href="<?php echo $URL?>/admin/productos/registro_prod.php" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
@@ -178,6 +175,35 @@ foreach($usuarios as $usuario){
                <a href="<?php echo $URL?>/admin/productos/papelera_p.php" class="nav-link">
                  <i class="far fa-circle nav-icon"></i>
                  <p>Papelera de productos</p>
+               </a>
+             </li>
+           </ul>
+         </li>
+         <li class="nav-item">
+           <a href="#" class="nav-link active usu">
+           <i class="bi bi-basket2-fill"> </i>
+             <p>
+              Servicios
+              <i class="right fas fa-angle-left"></i>
+             </p>
+           </a>
+           <ul class="nav nav-treeview">
+             <li class="nav-item">
+               <a href="<?php echo $URL?>/admin/servicios/registro_ser.php" class="nav-link">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Nuevo servicio</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?php echo $URL?>/admin/servicios/servicios.php" class="nav-link">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Listado de servicios</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="<?php echo $URL?>/admin/servicios/papelera_s.php" class="nav-link">
+                 <i class="far fa-circle nav-icon"></i>
+                 <p>Papelera de servicios</p>
                </a>
              </li>
            </ul>

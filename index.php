@@ -1,76 +1,8 @@
 <?php 
 include('app/config.php');
 include('app/controllers/productos/listado_produ.php');
+include('layout/i_parte1.php');
 ?>
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SISTEMA VETERINARIA</title>
-    <!--CSS-->
-    <link rel="stylesheet" href="styles.css">
-    <!--JQUERY-->
-    <script src="public/js/jquery-3.7.1.min.js"></script>
-   <!-- BOOSTRAP INSTALADO-->
-    <link href="public/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <!--ICONOS BOOSTRAP-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  </head>
-  <body>
-  <!--NAV-->
-    <nav class="navbar navbar-expand-lg bg-custom sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/006/470/429/small/pet-shop-logo-design-template-modern-animal-icon-label-for-store-veterinary-clinic-hospital-shelter-business-services-flat-illustration-background-with-dog-cat-and-horse-free-vector.jpg" 
-          alt="Logo" width="60" height="35" class="d-inline-block align-text-top">
-          Veterinaria Corazon
-        </a>
-         <!-- BOTÓN PARA MENÚ RESPONSIVO -->
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- MENÚ -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link btn btn-outline-info" aria-current="page" href="#"><i class="bi bi-house-heart-fill"></i>Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link btn btn-outline-info" href="#" >Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle btn btn-outline-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <div class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle btn btn-outline-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Ingresar
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="login/login.php">Iniciar Sesión</a></li>
-                  <li><a class="dropdown-item" href="login/registro.php">Registrarme</a></li>
-                </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
 
   <!--CAROUSEL-->
   <section>
@@ -199,40 +131,49 @@ include('app/controllers/productos/listado_produ.php');
   </section>
 
 <!--PRODUCTOS-->
-  <section class="our-products">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 ">
+<section class="our-products">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
         <br><br>
         <h2>NUESTROS <span style="color: rgb(40, 171, 223);">PRODUCTOS</span></h2>
         <br>
-       </div>
       </div>
-        <div class="row">
-          <?php foreach ($productos as $producto){
-          ?>
-          <div class="col-md-3">
-            <div class="card">
-            <img src="<?php echo $URL."public/images/productos/".$producto['imagen']?>" height="220px" class="card-img-top" alt="<?php echo $producto['descripcion']?>">
-            <div class="card-body">
-              <h5><div class="card-title"><?php echo $producto['nombre_producto']?></div></h5>
-              <hr>
-              <p class="card-text"><?php echo $producto['descripcion']?></p>
-              <a href="" class="btn btn-outline-info btn-lg" >Agregar al carrito</a>
+    </div>
+    <div class="row justify-content-center">
+      <?php 
+      $contador = 0;
+      foreach ($productos as $producto) {
+        if ($contador >= 4) break;
+        $contador++;
+      ?>
+      <div class="col-md-3 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="<?php echo $URL . "public/images/productos/" . $producto['imagen'] ?>" class="card-img-top" alt="<?php echo $producto['descripcion'] ?>" style="height: 220px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><?php echo $producto['nombre_producto'] ?></h5>
+            <hr>
+            <p class="card-text" style="flex-grow: 1;"><?php echo $producto['descripcion'] ?></p>
+            <div class="d-flex gap-2 mt-auto">
+              <a href="#" class="btn btn-info w-100">Comprar</a>
+              <button class="btn btn-outline-info" title="Agregar al carrito">
+                <i class="bi bi-cart-plus"></i>
+              </button>
             </div>
           </div>
-          <br>
-         </div>
-          <?php
-          }
-          ?>
-          <div class="row mt-4">
-  <div class="col d-flex justify-content-center">
-    <a href="tienda.php" class="btn btn-info btn-lg w-100 w-md-75">Ver más productos</a>
-  </div>
-</div>
+        </div>
+      </div>
+      <?php } ?>
     </div>
-  </section>
+
+    <!-- Botón de ver más -->
+    <div class="row mt-4">
+      <div class="col d-flex justify-content-center">
+        <a href="tienda.php" class="btn btn-info btn-lg px-5">Ver más productos</a>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!--GALERIA-->
 <section class="fondo">
@@ -334,55 +275,6 @@ include('app/controllers/productos/listado_produ.php');
 </section>
 </section> <!--CIERRO EL DEGRADE-->
 
-<!--FOOTER-->
-  <footer class="container-fluid footer">
-    <div class="container">
-      <br>
-      <div class="row">
-        <div class="col-md-4">
-          <center>
-            <br><br><br>
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/006/470/429/small/pet-shop-logo-design-template-modern-animal-icon-label-for-store-veterinary-clinic-hospital-shelter-business-services-flat-illustration-background-with-dog-cat-and-horse-free-vector.jpg" alt="" width="40%">
-          </center>  
-        </div>
-        <div class="col-md-4">
-          <h3 style="text-align: center;"><b>SISTEMA VETERINARIO</b></h3><br>
-          <p>
-            <a href="" class="btn" style="color: rgb(0, 0, 0);">NOSOTROS </a>
-            <br>
-            <a href="" class="btn" style="color: rgb(0, 0, 0);">GALERIA</a>
-            <br>
-            <a href="" class="btn" style="color: rgb(0, 0, 0);">TIENDA ONLINE</a>
-            <br>
-            <a href="" class="btn" style="color: rgb(0, 0, 0);">UBICACIÓN </a>
-          </p>
-          <br>
-          
-        </div>
-        <div class="col-md-4">
-          <br>
-          <br>
-          <br>
-          <b><i class="bi bi-telephone"></i> CONTACTO</b> 
-          <br>
-          <br>
-          <b><i class="bi bi-whatsapp"></i> WHATSAPP:</b> +54 11 11111-1111
-          <br>
-          <br>
-          <b><i class="bi bi-envelope-at"></i> EMAIL:</b> veterinariacorazon@gmail.com
-        </div>
-      </div>
-      
-    </div>
-
-    <section>
-      <p style="text-align: center;">
-        <b><i class="bi bi-c-circle"></i> Todos los derechos reservados, Zagman Valentina 2025 <i class="bi bi-c-circle"></i></b>
-      </p>
-      <br>
-    </section>
-  </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
-</html>
+<?php
+include('layout/i_parte2.php');
+?>

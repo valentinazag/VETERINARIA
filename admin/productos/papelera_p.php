@@ -33,7 +33,7 @@ include('../../app/controllers/productos/eliminados_produ.php');
         <div class="col-md-12">
             <div class="card card-outline card-warning">
                 <div class="card-header">
-                    <h3 class="card-title"><b>Productos registrados</b></h3>
+                    <h3 class="card-title"><b>Productos en papelera</b></h3>
                 </div>            
                 <div class="card-body">
                     <table id="example1" class="table table-striped table-bordered table-hover">

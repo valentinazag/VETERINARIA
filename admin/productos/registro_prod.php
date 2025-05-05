@@ -114,7 +114,7 @@ foreach($productos as $producto){
             <hr style="border-top: 1px solid #007bff;">
             <div class="row">
               <div class="col-md-12">
-                <a href="" class="btn btn-secondary">Cancelar</a>
+              <a href="../../admin/productos/productos.php" class="btn btn-secondary">Cancelar</a>
                 <input type="submit" class="btn btn-primary" value="Registrar">
               </div>
             </div>
