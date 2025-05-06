@@ -11,8 +11,12 @@ $password=$_POST['password'];
 $password_verify = $_POST['password_verify'];
 $cargo = $_POST['cargo'];   
 
+$nombreimagen = date('Y-m-d-h-is').$_FILES['imagen_u']['name'];
+$location= "../../../public/images/usuarios/".$nombreimagen;  //variable q almacena la imagen
+move_uploaded_file($_FILES['imagen_u']['tmp_name'], $location); //fucnion q sube la imagen y la guarda con su nombre "tmp_name"
+
 $contador=0;
-$sql = "SELECT * FROM usuarios WHERE email = '$email'";
+$sql = "SELECT * FROM usuarios WHERE email = '$email' AND estado = 'activo' ";
 $query = $pdo->prepare($sql);
 $query->execute();
 $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -30,10 +34,11 @@ session_start();
     if($password == $password_verify)
     {
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $sentencia = $pdo->prepare("INSERT INTO usuarios (nombre_completo, email, celular, password, cargo, fyh_creacion) 
-                                values(:nombre_completo, :email, :celular, :password, :cargo, :fyh_creacion )");  //LO MANDO POR PARAMETROS PARA COMODIDAD
+    $sentencia = $pdo->prepare("INSERT INTO usuarios (imagen_u,nombre_completo, email, celular, password, cargo, fyh_creacion) 
+                                values(:imagen_u,:nombre_completo, :email, :celular, :password, :cargo, :fyh_creacion )");  //LO MANDO POR PARAMETROS PARA COMODIDAD
     
     //PARAMETROS
+    $sentencia->bindParam(':imagen_u',$nombreimagen);
     $sentencia->bindParam(':nombre_completo', $nombre_completo);
     $sentencia->bindParam(':email', $email);
     $sentencia->bindParam(':celular', $celular);

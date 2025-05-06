@@ -9,13 +9,13 @@ include('../../admin/layout/part1.php');
 <div class="container-fluid">
   <h1>Registro de usuarios</h1>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="card card-outline card-primary carta">
         <div class="card-header">
           <h3 class="card-title"><b>Datos del Usuario</b></h3>
         </div>            
         <div class="card-body">
-          <form action="../../app/controllers/usuarios/registrar_users.php" method="POST">
+          <form action="../../app/controllers/usuarios/registrar_users.php" method="POST"  enctype="multipart/form-data">
             <!-- Primera fila -->
             <div class="row">
               <div class="col-md-4">
@@ -61,6 +61,15 @@ include('../../admin/layout/part1.php');
                   </select>
                 </div>
               </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="">Imagen</label>
+                  <input type="file" name ="imagen_u" class="form-control" id="file">
+                  <br>
+                  <output id="list"></output>
+                </div>
+              </div>
+           
             </div>
             <hr style="border-top: 1px solid #007bff;">
             <div class="row">
@@ -81,3 +90,21 @@ include('../../admin/layout/mensaje.php');
 ?>
 
 
+<script> //script para previzualisar la imgnen
+    function arquivo(evt){
+    var files = evt.target.files;
+    for(var i = 0, f; f = files[i]; i++) {
+        if(!f.type.match('image.*')) {
+            continue;
+        }
+        var reader = new FileReader();
+        reader.onload = (function(theFile){
+            return function(e){
+                document.getElementById("list").innerHTML = ['<img class="thumb thumbnail" src="',e.target.result, '" width="50%" title="', escape(theFile.name), '"/>'].join('');
+            };
+        })(f);
+        reader.readAsDataURL(f);
+    }
+}
+document.getElementById("file").addEventListener('change', arquivo, false);
+</script>

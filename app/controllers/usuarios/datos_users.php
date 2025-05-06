@@ -12,8 +12,9 @@ foreach($usuarios as $usuario)
     $email = $usuario['email'];
     $celular = $usuario['celular'];
     $cargo = $usuario['cargo'];
+    $imagen_u = $usuario['imagen_u'];
+    $fyh_creacion = $usuario['fyh_creacion'];
 }
-
 
 ?>
 

@@ -1,0 +1,20 @@
+.carta{
+  margin-left: 5%;
+  margin-right: 0;
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #81d1ff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.he{
+  background: #6aacd3;
+}
+.foto-perfil img {
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+}

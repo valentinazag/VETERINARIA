@@ -28,8 +28,16 @@ if (($contador > 0) && (password_verify($pw,$hash)))
         session_start();
         $_SESSION['sesion_email'] = $email;
         header('Location: '.$URL.'/admin/admin.php');
-    }else{
-        echo "Bienvenido CLIENTE";
+    }
+    else if ($usuario['cargo'] == "VETERINARIO" )
+    {
+        echo "Bienvenido VET";
+    }
+    else{
+        session_start();
+        $_SESSION['sesion_email'] = $email;
+        $_SESSION['nombre_completo'] = $usuario['nombre_completo'];
+        header('Location: '.$URL.'/index.php');
     }
     
 }else{

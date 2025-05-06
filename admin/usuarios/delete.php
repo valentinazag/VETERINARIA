@@ -10,7 +10,7 @@ include('../../app/controllers/usuarios/datos_users.php');
 <div class="container-fluid">
   <h1>Eliminar usuario</h1>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="card card-outline card-danger carta">
         <div class="card-header">
           <h3 class="card-title"><b>¿Esta seguro de eliminar este usuario?</b></h3>
@@ -44,6 +44,13 @@ include('../../app/controllers/usuarios/datos_users.php');
                 <div class="form-group">
                   <label for="">Cargo</label>
                   <input type="text" class="form-control" value="<?php echo $cargo;?>" disabled>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="">Imagen</label>
+                  <br>
+                  <img src="<?php echo $URL."/public/images/usuarios/".$imagen_u?>" alt="" width="150px">
                 </div>
               </div>
             </div>

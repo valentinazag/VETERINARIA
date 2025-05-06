@@ -1,3 +1,10 @@
-.carta{
-    background-color: rgb(204, 204, 204);
-}
+.carta {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+    width: 100%;
+    max-width: none;        /* <-- QUITA LA LIMITACIÓN */
+    flex: 1;                /* <-- PERMITE EXPANDIRSE */
+  }

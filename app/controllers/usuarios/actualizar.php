@@ -10,19 +10,31 @@ $celular =$_POST['celular'];
 $password=$_POST['password'];
 $password_verify = $_POST['password_verify'];
 $cargo = $_POST['cargo'];   
+$imagen_u = $_POST['imagen_u'];
 
-
+if($_FILES['imagen_u']['name'] != null){
+    //echo " hay imagen";
+    $nombreimagen = date('Y-m-d-h-is').$_FILES['imagen_u']['name'];
+    $location= "../../../public/images/usuarios/".$nombreimagen;  //variable q almacena la imagen
+    move_uploaded_file($_FILES['imagen_u']['tmp_name'], $location); //fucnion q sube la imagen y la guarda con su nombre "tmp_name"
+    $imagen_u = $nombreimagen;
+    }else{
+    //echo "no hay imagen nueva";
+    $imagen_u = $imagen_u;
+    }
 
 if($password == "")//SI NO QUIERO ACTUALIZAR PW
 {  
     $sentencia = $pdo->prepare("UPDATE usuarios 
     SET nombre_completo=:nombre_completo,
     celular=:celular,
+    imagen_u=:imagen_u,
     cargo=:cargo,
     fyh_actualizacion=:fyh_actualizacion
     WHERE id_user=:id_user");
     $sentencia->bindParam(':nombre_completo', $nombre_completo);
-    $sentencia->bindParam(':celular', $celular);
+     $sentencia->bindParam(':imagen_u', $imagen_u);
+     $sentencia->bindParam(':celular', $celular);
     $sentencia->bindParam(':cargo', $cargo);
     $sentencia->bindParam(':fyh_actualizacion', $fecha);
     $sentencia->bindParam(':id_user', $id_usuario);
@@ -49,12 +61,14 @@ else //SI QUIERO ACTUALIZAR CONTRASEÑA
         $password = password_hash($password, PASSWORD_DEFAULT);
         $sentencia = $pdo->prepare("UPDATE usuarios 
                                     SET nombre_completo=:nombre_completo,
+                                    imagen_u=:imagen_u,
                                     celular=:celular,
                                     password=:password,
                                     cargo=:cargo,
                                     fyh_actualizacion=:fyh_actualizacion
                                     WHERE id_user=:id_user");
             $sentencia->bindParam(':nombre_completo', $nombre_completo);
+            $sentencia->bindParam(':imagen_u', $imagen_u);
             $sentencia->bindParam(':celular', $celular);
             $sentencia->bindParam(':password', $password);
             $sentencia->bindParam(':cargo', $cargo);

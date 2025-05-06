@@ -10,13 +10,13 @@ include('../../app/controllers/usuarios/datos_users.php');
 <div class="container-fluid">
   <h1>Editar usuario</h1>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="card card-outline card-success carta">
         <div class="card-header">
           <h3 class="card-title"><b>Datos del Usuario</b></h3>
         </div>            
         <div class="card-body">
-          <form action="../../app/controllers/usuarios/actualizar.php" method="POST">
+          <form action="../../app/controllers/usuarios/actualizar.php" method="POST"  enctype="multipart/form-data">
             <!-- Primera fila -->
             <div class="row">
               <div class="col-md-4">
@@ -71,6 +71,14 @@ include('../../app/controllers/usuarios/datos_users.php');
                 </select>
                 </div>
               </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="">Imagen</label>
+                  <input type="file" name ="imagen_u" class="form-control" id="file">
+                  <br>
+                  <output id="list"> <img src="<?php echo $URL."/public/images/usuarios/".$imagen_u?>" alt="" width="60%"></output>
+                </div>
+              </div>
             </div>
             <input type="text" name="id_usuario" value="<?php echo $id_usuario?>" hidden>
             <hr style="border-top: 1px solid #198754;">
@@ -92,3 +100,22 @@ include('../../admin/layout/mensaje.php');
 ?>
 
 
+<script> //script para previzualisar la imgnen
+    function arquivo(evt){
+    var files = evt.target.files;
+    for(var i = 0, f; f = files[i]; i++) {
+        if(!f.type.match('image.*')) {
+            continue;
+        }
+        var reader = new FileReader();
+        reader.onload = (function(theFile){
+            return function(e){
+                document.getElementById("list").innerHTML = ['<img class="thumb thumbnail" src="',e.target.result, '" width="50%" title="', escape(theFile.name), '"/>'].join('');
+            };
+        })(f);
+        reader.readAsDataURL(f);
+    }
+}
+document.getElementById("file").addEventListener('change', arquivo, false);
+
+</script>
